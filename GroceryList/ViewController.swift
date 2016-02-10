@@ -7,12 +7,24 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Create a reference to a Firebase location
+        var myRootRef = Firebase(url:"https://luminous-torch-8558.firebaseio.com")
+        // Write data to Firebase
+        myRootRef.setValue("Do you have data? You'll love Firebase.")
+        
+        
+        // Read data and react to changes
+        myRootRef.observeEventType(.Value, withBlock: {
+            snapshot in
+            print("\(snapshot.key) -> \(snapshot.value)")
+        })
     }
 
     override func didReceiveMemoryWarning() {
