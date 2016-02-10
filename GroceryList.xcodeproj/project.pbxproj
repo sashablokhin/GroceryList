@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		AB786B7F1C6B6A72009910F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB786B7E1C6B6A72009910F1 /* AppDelegate.swift */; };
-		AB786B811C6B6A72009910F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB786B801C6B6A72009910F1 /* ViewController.swift */; };
+		AB786B811C6B6A72009910F1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB786B801C6B6A72009910F1 /* LoginViewController.swift */; };
 		AB786B841C6B6A72009910F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB786B821C6B6A72009910F1 /* Main.storyboard */; };
 		AB786B861C6B6A72009910F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB786B851C6B6A72009910F1 /* Assets.xcassets */; };
 		AB786B891C6B6A72009910F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB786B871C6B6A72009910F1 /* LaunchScreen.storyboard */; };
+		AB786B911C6B7DA0009910F1 /* GroceryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB786B901C6B7DA0009910F1 /* GroceryListTableViewController.swift */; };
 		B6F5B4B43E994E618E5936F8 /* Pods_GroceryList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E3A058046C86A6B7886578 /* Pods_GroceryList.framework */; };
 /* End PBXBuildFile section */
 
@@ -19,11 +20,12 @@
 		5793370F81263C4C9B944C2A /* Pods-GroceryList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryList.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroceryList/Pods-GroceryList.release.xcconfig"; sourceTree = "<group>"; };
 		AB786B7B1C6B6A72009910F1 /* GroceryList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceryList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB786B7E1C6B6A72009910F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AB786B801C6B6A72009910F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AB786B801C6B6A72009910F1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AB786B831C6B6A72009910F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AB786B851C6B6A72009910F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB786B881C6B6A72009910F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB786B8A1C6B6A72009910F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB786B901C6B7DA0009910F1 /* GroceryListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListTableViewController.swift; sourceTree = "<group>"; };
 		AD80F9908A7DC2F8830BCCB1 /* Pods-GroceryList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GroceryList/Pods-GroceryList.debug.xcconfig"; sourceTree = "<group>"; };
 		C6E3A058046C86A6B7886578 /* Pods_GroceryList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroceryList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -79,7 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				AB786B7E1C6B6A72009910F1 /* AppDelegate.swift */,
-				AB786B801C6B6A72009910F1 /* ViewController.swift */,
+				AB786B801C6B6A72009910F1 /* LoginViewController.swift */,
+				AB786B901C6B7DA0009910F1 /* GroceryListTableViewController.swift */,
 				AB786B821C6B6A72009910F1 /* Main.storyboard */,
 				AB786B851C6B6A72009910F1 /* Assets.xcassets */,
 				AB786B871C6B6A72009910F1 /* LaunchScreen.storyboard */,
@@ -210,7 +213,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB786B811C6B6A72009910F1 /* ViewController.swift in Sources */,
+				AB786B811C6B6A72009910F1 /* LoginViewController.swift in Sources */,
+				AB786B911C6B7DA0009910F1 /* GroceryListTableViewController.swift in Sources */,
 				AB786B7F1C6B6A72009910F1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

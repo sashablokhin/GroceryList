@@ -9,10 +9,25 @@
 import UIKit
 import Firebase
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var loginButton: UIButton!
+    
 
+    @IBAction func loginButtonPressed(sender: AnyObject) {
+        performSegueWithIdentifier("showGroceryList", sender: self)
+    }
+    
+    
+    @IBAction func signupButtonPressed(sender: AnyObject) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loginButton.layer.cornerRadius = 5.0
+        loginButton.clipsToBounds = true
         
         // Create a reference to a Firebase location
         var myRootRef = Firebase(url:"https://luminous-torch-8558.firebaseio.com")
