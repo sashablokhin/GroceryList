@@ -29,6 +29,7 @@ class LoginViewController: UIViewController {
         loginButton.layer.cornerRadius = 5.0
         loginButton.clipsToBounds = true
         
+        /*
         // Create a reference to a Firebase location
         var myRootRef = Firebase(url:"https://luminous-torch-8558.firebaseio.com")
         // Write data to Firebase
@@ -39,7 +40,7 @@ class LoginViewController: UIViewController {
         myRootRef.observeEventType(.Value, withBlock: {
             snapshot in
             print("\(snapshot.key) -> \(snapshot.value)")
-        })
+        })*/
     }
 
     override func didReceiveMemoryWarning() {

@@ -96,6 +96,9 @@
                     <navigationItem key="navigationItem" title="Grocery List" id="68K-TD-94a">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="XAX-0i-mR1">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="29x-OC-rOX" id="da0-N8-GDB"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

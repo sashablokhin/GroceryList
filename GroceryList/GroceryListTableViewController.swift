@@ -10,6 +10,37 @@ import UIKit
 
 class GroceryListTableViewController: UITableViewController {
 
+    @IBAction func addButtonPressed(sender: AnyObject) {
+        // Alert View for input
+        let alert = UIAlertController(title: "Grocery Item",
+            message: "Add an Item",
+            preferredStyle: .Alert)
+        
+        let saveAction = UIAlertAction(title: "Save",
+            style: .Default) { (action: UIAlertAction!) -> Void in
+                
+                let textField = alert.textFields![0] 
+                //let groceryItem = GroceryItem(name: textField.text, addedByUser: self.user.email, completed: false)
+                //self.items.append(groceryItem)
+                self.tableView.reloadData()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel",
+            style: .Default) { (action: UIAlertAction!) -> Void in
+        }
+        
+        alert.addTextFieldWithConfigurationHandler {
+            (textField: UITextField!) -> Void in
+        }
+        
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        
+        presentViewController(alert,
+            animated: true,
+            completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
