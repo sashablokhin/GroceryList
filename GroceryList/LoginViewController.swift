@@ -21,6 +21,38 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func signupButtonPressed(sender: AnyObject) {
+        let alert = UIAlertController(title: "Register",
+            message: "Register",
+            preferredStyle: .Alert)
+        
+        let saveAction = UIAlertAction(title: "Save",
+            style: .Default) { (action: UIAlertAction!) -> Void in
+                
+                let emailField = alert.textFields![0] as! UITextField
+                let passwordField = alert.textFields![1] as! UITextField
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel",
+            style: .Default) { (action: UIAlertAction!) -> Void in
+        }
+        
+        alert.addTextFieldWithConfigurationHandler {
+            (textEmail) -> Void in
+            textEmail.placeholder = "Enter your email"
+        }
+        
+        alert.addTextFieldWithConfigurationHandler {
+            (textPassword) -> Void in
+            textPassword.secureTextEntry = true
+            textPassword.placeholder = "Enter your password"
+        }
+        
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        
+        presentViewController(alert,
+            animated: true,
+            completion: nil)
     }
     
     override func viewDidLoad() {

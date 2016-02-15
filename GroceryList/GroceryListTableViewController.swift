@@ -9,6 +9,9 @@
 import UIKit
 
 class GroceryListTableViewController: UITableViewController {
+    
+    var items = [GroceryItem]()
+    var user: User!
 
     @IBAction func addButtonPressed(sender: AnyObject) {
         // Alert View for input
@@ -20,8 +23,8 @@ class GroceryListTableViewController: UITableViewController {
             style: .Default) { (action: UIAlertAction!) -> Void in
                 
                 let textField = alert.textFields![0] 
-                //let groceryItem = GroceryItem(name: textField.text, addedByUser: self.user.email, completed: false)
-                //self.items.append(groceryItem)
+                let groceryItem = GroceryItem(name: textField.text!, addedByUser: self.user.email, completed: false)
+                self.items.append(groceryItem)
                 self.tableView.reloadData()
         }
         
@@ -43,6 +46,8 @@ class GroceryListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        user = User(uid: "FakeId", email: "hungry@person.food")
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,24 +59,65 @@ class GroceryListTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return items.count
     }
-
-    /*
+    
+    
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        
+        let groceryItem = items[indexPath.row]
+        
+        cell.textLabel?.text = groceryItem.name
+        cell.detailTextLabel?.text = groceryItem.addedByUser
+        
+        // Determine whether the cell is checked
+        toggleCellCheckbox(cell, isCompleted: groceryItem.completed)
+        
         return cell
     }
-    */
+    
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            // Find the snapshot and remove the value
+            items.removeAtIndex(indexPath.row)
+            tableView.reloadData()
+        }
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath)!
+        var groceryItem = items[indexPath.row]
+        let toggledCompletion = !groceryItem.completed
+        
+        // Determine whether the cell is checked
+        toggleCellCheckbox(cell, isCompleted: toggledCompletion)
+        groceryItem.completed = toggledCompletion
+        tableView.reloadData()
+    }
+    
 
+    // MARK: - Supporting functions
+    
+    func toggleCellCheckbox(cell: UITableViewCell, isCompleted: Bool) {
+        if !isCompleted {
+            cell.accessoryType = UITableViewCellAccessoryType.None
+            cell.textLabel?.textColor = UIColor.blackColor()
+            cell.detailTextLabel?.textColor = UIColor.blackColor()
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+            cell.textLabel?.textColor = UIColor.grayColor()
+            cell.detailTextLabel?.textColor = UIColor.grayColor()
+        }
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -80,17 +126,6 @@ class GroceryListTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
 
     /*
     // Override to support rearranging the table view.
