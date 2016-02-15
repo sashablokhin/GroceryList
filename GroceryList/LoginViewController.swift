@@ -17,7 +17,11 @@ class LoginViewController: UIViewController {
     private var myRootRef = Firebase(url:"https://luminous-torch-8558.firebaseio.com")
 
     @IBAction func loginButtonPressed(sender: AnyObject) {
-        performSegueWithIdentifier("showGroceryList", sender: self)
+        myRootRef.authUser(emailTextField.text, password: passwordTextField.text,
+            withCompletionBlock: { (error, auth) in
+                
+        })
+        //performSegueWithIdentifier("showGroceryList", sender: self)
     }
     
     
@@ -29,8 +33,16 @@ class LoginViewController: UIViewController {
         let saveAction = UIAlertAction(title: "Save",
             style: .Default) { (action: UIAlertAction!) -> Void in
                 
-                let emailField = alert.textFields![0] as! UITextField
-                let passwordField = alert.textFields![1] as! UITextField
+                let emailField = alert.textFields![0] 
+                let passwordField = alert.textFields![1] 
+                
+                self.myRootRef.createUser(emailField.text, password: passwordField.text) { (error: NSError!) in
+                    if error == nil {
+                        self.myRootRef.authUser(emailField.text, password: passwordField.text,
+                            withCompletionBlock: { (error, auth) -> Void in
+                        })
+                    }
+                }
         }
         
         let cancelAction = UIAlertAction(title: "Cancel",
@@ -74,6 +86,16 @@ class LoginViewController: UIViewController {
             snapshot in
             print("\(snapshot.key) -> \(snapshot.value)")
         })*/
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        myRootRef.observeAuthEventWithBlock { (authData) -> Void in
+            if authData != nil {
+                self.performSegueWithIdentifier("showGroceryList", sender: self)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
