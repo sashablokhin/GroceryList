@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 class GroceryListTableViewController: UITableViewController {
     
     var items = [GroceryItem]()
     var user: User!
+    
+    private var myRootRef = Firebase(url:"https://luminous-torch-8558.firebaseio.com")
 
     @IBAction func addButtonPressed(sender: AnyObject) {
         // Alert View for input
@@ -24,8 +27,13 @@ class GroceryListTableViewController: UITableViewController {
                 
                 let textField = alert.textFields![0] 
                 let groceryItem = GroceryItem(name: textField.text!, addedByUser: self.user.email, completed: false)
-                self.items.append(groceryItem)
-                self.tableView.reloadData()
+                
+                
+                let groceryItemRef = self.myRootRef.childByAppendingPath(textField.text!.lowercaseString)
+                groceryItemRef.setValue(groceryItem.toAnyObject())
+                
+                //self.items.append(groceryItem)
+                //self.tableView.reloadData()
         }
         
         let cancelAction = UIAlertAction(title: "Cancel",
@@ -48,6 +56,23 @@ class GroceryListTableViewController: UITableViewController {
         super.viewDidLoad()
         
         user = User(uid: "FakeId", email: "hungry@person.food")
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        myRootRef.observeEventType(.Value, withBlock: { snapshot in
+            
+            var newItems = [GroceryItem]()
+            
+            for item in snapshot.children {
+                let groceryItem = GroceryItem(snapshot: item as! FDataSnapshot)
+                newItems.append(groceryItem)
+            }
+            
+            self.items = newItems
+            self.tableView.reloadData()
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -94,7 +119,7 @@ class GroceryListTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)!
-        var groceryItem = items[indexPath.row]
+        let groceryItem = items[indexPath.row]
         let toggledCompletion = !groceryItem.completed
         
         // Determine whether the cell is checked
@@ -117,39 +142,5 @@ class GroceryListTableViewController: UITableViewController {
             cell.detailTextLabel?.textColor = UIColor.grayColor()
         }
     }
-    
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

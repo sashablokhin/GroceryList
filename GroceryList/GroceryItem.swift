@@ -10,7 +10,7 @@
 import Firebase
 
 
-struct GroceryItem {
+class GroceryItem {
     
     let key: String!
     let name: String!

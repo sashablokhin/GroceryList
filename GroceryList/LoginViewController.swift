@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var loginButton: UIButton!
     
+    private var myRootRef = Firebase(url:"https://luminous-torch-8558.firebaseio.com")
 
     @IBAction func loginButtonPressed(sender: AnyObject) {
         performSegueWithIdentifier("showGroceryList", sender: self)
