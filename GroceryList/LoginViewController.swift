@@ -26,9 +26,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func loginButtonPressed(sender: AnyObject) {
+        
+        self.view.endEditing(true)
+        
         myRootRef.authUser(emailTextField.text, password: passwordTextField.text,
             withCompletionBlock: { (error, auth) in
-                
+                if error != nil {
+                    print(error.userInfo["NSLocalizedDescription"]!)
+                }
         })
     }
     
