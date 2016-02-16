@@ -33,9 +33,6 @@ class MainViewController: UIViewController, TabsViewControllerDelegate {
         navItem.rightBarButtonItems = [addButton]
         
         navigationBar.setItems([navItem], animated: true)
-        
-        //self.view.addSubview(navigationBar)
-
     }
     
     
@@ -71,9 +68,7 @@ class MainViewController: UIViewController, TabsViewControllerDelegate {
         tab2.imageNormal = UIImage(named: "users_black")
         tab2.imageActive = UIImage(named: "users_white")
         tab2.title = "Users"
-        tab2.viewController = //GroceryListTableViewController()
-        viewControllerWithColor(UIColor.brownColor().colorWithAlphaComponent(0.8))
-        
+        tab2.viewController = OnlineUsersTableViewController()
         
         tabsViewController = TabsViewController(parent: self, tabs: [tab1, tab2])
         tabsViewController.view.frame = CGRect(x: 0, y: 64, width: view.frame.width, height: view.frame.height)
@@ -82,7 +77,7 @@ class MainViewController: UIViewController, TabsViewControllerDelegate {
         self.view.addSubview(tabsViewController.view)
         
         tabsViewController.tabsScrollView.appearance.outerPadding = 0
-        tabsViewController.tabsScrollView.appearance.innerPadding = view.frame.width / 4 //50
+        tabsViewController.tabsScrollView.appearance.innerPadding = view.frame.width / 4 
         
         tabsViewController.setCurrentViewControllerAtIndex(0)
         

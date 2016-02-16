@@ -13,6 +13,7 @@
 		AB1924981C721D5D00BA94BF /* TabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1924961C721D5D00BA94BF /* TabsViewController.swift */; };
 		AB19249A1C721DAA00BA94BF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1924991C721DAA00BA94BF /* Extensions.swift */; };
 		AB19249C1C721F3400BA94BF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB19249B1C721F3400BA94BF /* MainViewController.swift */; };
+		AB19249E1C732CFC00BA94BF /* OnlineUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB19249D1C732CFC00BA94BF /* OnlineUsersTableViewController.swift */; };
 		AB786B7F1C6B6A72009910F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB786B7E1C6B6A72009910F1 /* AppDelegate.swift */; };
 		AB786B811C6B6A72009910F1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB786B801C6B6A72009910F1 /* LoginViewController.swift */; };
 		AB786B841C6B6A72009910F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB786B821C6B6A72009910F1 /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 		AB1924961C721D5D00BA94BF /* TabsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabsViewController.swift; sourceTree = "<group>"; };
 		AB1924991C721DAA00BA94BF /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		AB19249B1C721F3400BA94BF /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		AB19249D1C732CFC00BA94BF /* OnlineUsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlineUsersTableViewController.swift; sourceTree = "<group>"; };
 		AB786B7B1C6B6A72009910F1 /* GroceryList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceryList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB786B7E1C6B6A72009910F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB786B801C6B6A72009910F1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -114,9 +116,10 @@
 				AB1924941C721D2000BA94BF /* TabsViewController */,
 				AB19248F1C71FD8500BA94BF /* Models */,
 				AB786B7E1C6B6A72009910F1 /* AppDelegate.swift */,
-				AB19249B1C721F3400BA94BF /* MainViewController.swift */,
 				AB786B801C6B6A72009910F1 /* LoginViewController.swift */,
+				AB19249B1C721F3400BA94BF /* MainViewController.swift */,
 				AB786B901C6B7DA0009910F1 /* GroceryListTableViewController.swift */,
+				AB19249D1C732CFC00BA94BF /* OnlineUsersTableViewController.swift */,
 				AB786B821C6B6A72009910F1 /* Main.storyboard */,
 				AB786B851C6B6A72009910F1 /* Assets.xcassets */,
 				AB786B871C6B6A72009910F1 /* LaunchScreen.storyboard */,
@@ -252,6 +255,7 @@
 				AB786B911C6B7DA0009910F1 /* GroceryListTableViewController.swift in Sources */,
 				AB19249A1C721DAA00BA94BF /* Extensions.swift in Sources */,
 				AB1924911C71FDB100BA94BF /* GroceryItem.swift in Sources */,
+				AB19249E1C732CFC00BA94BF /* OnlineUsersTableViewController.swift in Sources */,
 				AB1924931C71FDC400BA94BF /* User.swift in Sources */,
 				AB19249C1C721F3400BA94BF /* MainViewController.swift in Sources */,
 				AB786B7F1C6B6A72009910F1 /* AppDelegate.swift in Sources */,
