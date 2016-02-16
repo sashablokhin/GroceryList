@@ -9,14 +9,16 @@
 import UIKit
 import Firebase
 
-class GroceryListTableViewController: UITableViewController {
+class GroceryListTableViewController: UITableViewController, HiddenNavigationBarProtocol {
+    
+    var hiddenNavigationBarDelegate: HiddenNavigationBarScrollViewDelegate?
     
     var items = [GroceryItem]()
     var user: User!
     
     private var myRootRef = Firebase(url:"https://luminous-torch-8558.firebaseio.com")
 
-    @IBAction func addButtonPressed(sender: AnyObject) {
+    func addGrocery() {
         // Alert View for input
         let alert = UIAlertController(title: "Grocery Item",
             message: "Add an Item",
@@ -32,8 +34,6 @@ class GroceryListTableViewController: UITableViewController {
                 let groceryItemRef = self.myRootRef.childByAppendingPath(textField.text!.lowercaseString)
                 groceryItemRef.setValue(groceryItem.toAnyObject())
                 
-                //self.items.append(groceryItem)
-                //self.tableView.reloadData()
         }
         
         let cancelAction = UIAlertAction(title: "Cancel",
@@ -56,6 +56,10 @@ class GroceryListTableViewController: UITableViewController {
         super.viewDidLoad()
         
         user = User(uid: "FakeId", email: "hungry@person.food")
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "addGrocery", name: "AddGrocery", object: nil)
+        
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -102,7 +106,8 @@ class GroceryListTableViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+
+        let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "cell")
         
         let groceryItem = items[indexPath.row]
         
@@ -133,6 +138,21 @@ class GroceryListTableViewController: UITableViewController {
         toggleCellCheckbox(cell, isCompleted: toggledCompletion)
         
         groceryItem.ref?.updateChildValues(["completed": toggledCompletion])
+    }
+    
+    
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        tableView.contentInset.bottom = tabsViewController.tabsScrollView.frame.height + 40
+        //hiddenNavigationBarDelegate?.hiddenNavigationBarScrollViewDidScroll!(scrollView)
+    }
+    
+    override func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        //hiddenNavigationBarDelegate?.hiddenNavigationBarScrollViewDidEndDecelerating!(scrollView)
+    }
+    
+    
+    override func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        //hiddenNavigationBarDelegate?.hiddenNavigationBarScrollViewDidEndDragging!(scrollView, willDecelerate: decelerate)
     }
     
 

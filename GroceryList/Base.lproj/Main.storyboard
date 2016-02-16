@@ -55,7 +55,7 @@
                         <outlet property="emailTextField" destination="B5s-p7-3hG" id="Ton-sV-ChV"/>
                         <outlet property="loginButton" destination="FpS-ow-6ia" id="zSs-aH-43G"/>
                         <outlet property="passwordTextField" destination="fYC-Mp-lph" id="JMF-Cc-BuO"/>
-                        <segue destination="5n2-f4-zvb" kind="presentation" identifier="showGroceryList" id="1OE-55-Va6"/>
+                        <segue destination="5n2-f4-zvb" kind="presentation" identifier="showTabs" id="1OE-55-Va6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -72,7 +72,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="H2f-DU-GZv" detailTextLabel="Cpi-qs-jfJ" style="IBUITableViewCellStyleSubtitle" id="d4k-2a-OhJ">
-                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d4k-2a-OhJ" id="kM9-RD-c3A">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -104,16 +104,13 @@
                     <navigationItem key="navigationItem" title="Grocery List" id="68K-TD-94a">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="XAX-0i-mR1">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="addButtonPressed:" destination="29x-OC-rOX" id="da0-N8-GDB"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Yg-Ip-5L4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1386" y="346"/>
+            <point key="canvasLocation" x="1777" y="346"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="e3H-hL-SLZ">
@@ -131,12 +128,32 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="29x-OC-rOX" kind="relationship" relationship="rootViewController" id="qdq-5W-ATe"/>
+                        <segue destination="tcn-cv-Op8" kind="relationship" relationship="rootViewController" id="uF0-8Z-pVq"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="spk-t5-PQW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="944" y="346"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="KsF-kq-zhy">
+            <objects>
+                <viewController id="tcn-cv-Op8" customClass="MainViewController" customModule="GroceryList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ii1-ba-Hf3"/>
+                        <viewControllerLayoutGuide type="bottom" id="Eqh-dP-z9Q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="waw-zL-7Ep">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="p1z-9k-ZzD"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fEa-LN-oyb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1365" y="346"/>
         </scene>
     </scenes>
 </document>

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		AB1924911C71FDB100BA94BF /* GroceryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1924901C71FDB100BA94BF /* GroceryItem.swift */; };
 		AB1924931C71FDC400BA94BF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1924921C71FDC400BA94BF /* User.swift */; };
+		AB1924971C721D5D00BA94BF /* TabsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1924951C721D5D00BA94BF /* TabsScrollView.swift */; };
+		AB1924981C721D5D00BA94BF /* TabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1924961C721D5D00BA94BF /* TabsViewController.swift */; };
+		AB19249A1C721DAA00BA94BF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1924991C721DAA00BA94BF /* Extensions.swift */; };
+		AB19249C1C721F3400BA94BF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB19249B1C721F3400BA94BF /* MainViewController.swift */; };
 		AB786B7F1C6B6A72009910F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB786B7E1C6B6A72009910F1 /* AppDelegate.swift */; };
 		AB786B811C6B6A72009910F1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB786B801C6B6A72009910F1 /* LoginViewController.swift */; };
 		AB786B841C6B6A72009910F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB786B821C6B6A72009910F1 /* Main.storyboard */; };
@@ -22,6 +26,10 @@
 		5793370F81263C4C9B944C2A /* Pods-GroceryList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryList.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroceryList/Pods-GroceryList.release.xcconfig"; sourceTree = "<group>"; };
 		AB1924901C71FDB100BA94BF /* GroceryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryItem.swift; sourceTree = "<group>"; };
 		AB1924921C71FDC400BA94BF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AB1924951C721D5D00BA94BF /* TabsScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabsScrollView.swift; sourceTree = "<group>"; };
+		AB1924961C721D5D00BA94BF /* TabsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabsViewController.swift; sourceTree = "<group>"; };
+		AB1924991C721DAA00BA94BF /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		AB19249B1C721F3400BA94BF /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		AB786B7B1C6B6A72009910F1 /* GroceryList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceryList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB786B7E1C6B6A72009910F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB786B801C6B6A72009910F1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +80,16 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		AB1924941C721D2000BA94BF /* TabsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AB1924951C721D5D00BA94BF /* TabsScrollView.swift */,
+				AB1924961C721D5D00BA94BF /* TabsViewController.swift */,
+				AB1924991C721DAA00BA94BF /* Extensions.swift */,
+			);
+			name = TabsViewController;
+			sourceTree = "<group>";
+		};
 		AB786B721C6B6A72009910F1 = {
 			isa = PBXGroup;
 			children = (
@@ -93,8 +111,10 @@
 		AB786B7D1C6B6A72009910F1 /* GroceryList */ = {
 			isa = PBXGroup;
 			children = (
+				AB1924941C721D2000BA94BF /* TabsViewController */,
 				AB19248F1C71FD8500BA94BF /* Models */,
 				AB786B7E1C6B6A72009910F1 /* AppDelegate.swift */,
+				AB19249B1C721F3400BA94BF /* MainViewController.swift */,
 				AB786B801C6B6A72009910F1 /* LoginViewController.swift */,
 				AB786B901C6B7DA0009910F1 /* GroceryListTableViewController.swift */,
 				AB786B821C6B6A72009910F1 /* Main.storyboard */,
@@ -228,10 +248,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB786B811C6B6A72009910F1 /* LoginViewController.swift in Sources */,
+				AB1924981C721D5D00BA94BF /* TabsViewController.swift in Sources */,
 				AB786B911C6B7DA0009910F1 /* GroceryListTableViewController.swift in Sources */,
+				AB19249A1C721DAA00BA94BF /* Extensions.swift in Sources */,
 				AB1924911C71FDB100BA94BF /* GroceryItem.swift in Sources */,
 				AB1924931C71FDC400BA94BF /* User.swift in Sources */,
+				AB19249C1C721F3400BA94BF /* MainViewController.swift in Sources */,
 				AB786B7F1C6B6A72009910F1 /* AppDelegate.swift in Sources */,
+				AB1924971C721D5D00BA94BF /* TabsScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

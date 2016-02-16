@@ -93,7 +93,7 @@ class LoginViewController: UIViewController {
         
         myRootRef.observeAuthEventWithBlock { (authData) -> Void in
             if authData != nil {
-                self.performSegueWithIdentifier("showGroceryList", sender: self)
+                self.performSegueWithIdentifier("showTabs", sender: nil)
             }
         }
     }
