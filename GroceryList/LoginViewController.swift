@@ -9,12 +9,21 @@
 import UIKit
 import Firebase
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var loginButton: UIButton!
     
     private let myRootRef = Firebase(url:"https://luminous-torch-8558.firebaseio.com/grocery_list")
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
 
     @IBAction func loginButtonPressed(sender: AnyObject) {
         myRootRef.authUser(emailTextField.text, password: passwordTextField.text,
@@ -72,6 +81,9 @@ class LoginViewController: UIViewController {
         
         loginButton.layer.cornerRadius = 5.0
         loginButton.clipsToBounds = true
+        
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
         
         /*
         // Create a reference to a Firebase location
