@@ -16,7 +16,8 @@ class GroceryListTableViewController: UITableViewController, HiddenNavigationBar
     var items = [GroceryItem]()
     var user: User!
     
-    private var myRootRef = Firebase(url:"https://luminous-torch-8558.firebaseio.com")
+    private let myRootRef = Firebase(url:"https://luminous-torch-8558.firebaseio.com/grocery_list")
+    private let usersRef = Firebase(url: "https://luminous-torch-8558.firebaseio.com/online")
 
     func addGrocery() {
         // Alert View for input
@@ -82,8 +83,19 @@ class GroceryListTableViewController: UITableViewController, HiddenNavigationBar
         myRootRef.observeAuthEventWithBlock { authData in
             if authData != nil {
                 self.user = User(authData: authData)
+                let currentUserRef = self.usersRef.childByAppendingPath(self.user.uid)
+                currentUserRef.setValue(self.user.email)
+                currentUserRef.onDisconnectRemoveValue()
             }
         }
+        
+        usersRef.observeEventType(.Value, withBlock: { (snapshot: FDataSnapshot!) in
+            if snapshot.exists() {
+                print("Online user count = " + snapshot.childrenCount.description)
+            } else {
+                print("Online user count = 0")
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {

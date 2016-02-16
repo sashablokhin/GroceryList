@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Firebase
 
 class OnlineUsersTableViewController: UITableViewController {
+    
+    private let usersRef = Firebase(url: "https://luminous-torch-8558.firebaseio.com/online")
     
     var currentUsers = [String]()
 
@@ -18,6 +21,30 @@ class OnlineUsersTableViewController: UITableViewController {
         
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        usersRef.observeEventType(.ChildAdded, withBlock: { (snap: FDataSnapshot!) in
+            self.currentUsers.append(snap.value as! String)
+            let row = self.currentUsers.count - 1
+            let indexPath = NSIndexPath(forRow: row, inSection: 0)
+            self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Top)
+        })
+        
+        usersRef.observeEventType(.ChildRemoved, withBlock: { (snap: FDataSnapshot!) -> Void in
+            let emailToFind: String! = snap.value as! String
+            for(index, email) in self.currentUsers.enumerate() {
+                if email == emailToFind {
+                    let indexPath = NSIndexPath(forRow: index, inSection: 0)
+                    self.currentUsers.removeAtIndex(index)
+                    self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                }
+            }
+        })
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

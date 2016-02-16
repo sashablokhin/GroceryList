@@ -14,14 +14,13 @@ class LoginViewController: UIViewController {
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var loginButton: UIButton!
     
-    private var myRootRef = Firebase(url:"https://luminous-torch-8558.firebaseio.com")
+    private let myRootRef = Firebase(url:"https://luminous-torch-8558.firebaseio.com/grocery_list")
 
     @IBAction func loginButtonPressed(sender: AnyObject) {
         myRootRef.authUser(emailTextField.text, password: passwordTextField.text,
             withCompletionBlock: { (error, auth) in
                 
         })
-        //performSegueWithIdentifier("showGroceryList", sender: self)
     }
     
     
